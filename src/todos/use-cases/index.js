@@ -1,3 +1,3 @@
-export { createHTML } from "./create-todo-hrml";
+export { createHTML } from "./create-todo-html";
 
-export{ renderTodos } from "./render-todos";
+export { renderTodos } from "./render-todos";

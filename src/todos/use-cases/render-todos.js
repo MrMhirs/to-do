@@ -1,5 +1,7 @@
 import { Todo } from "../models/todo.model";
-import { createHTML } from "./create-todo-hrml";
+import { createHTML } from "./create-todo-html";
+
+let element;
 
 /**
  *
@@ -7,7 +9,10 @@ import { createHTML } from "./create-todo-hrml";
  * @param {Todo} todos
  */
 export const renderTodos = (elementId, todos = []) => {
-  const element = document.querySelector(elementId);
+  if (!element) element = document.querySelector(elementId);
+  if (!element) throw new Error(`Element ${elementId} not found`);
+
+  element.innerHTML = "";
   todos.forEach((todo) => {
     element.append(createHTML(todo));
   });
